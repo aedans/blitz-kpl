@@ -1,0 +1,58 @@
+{
+  "Header": {
+    "prefix": "header",
+    "body": ["header $TM_FILENAME_BASE", "\t$0", "endHeader"]
+  },
+  "Code": {
+    "prefix": "code",
+    "body": ["code $TM_FILENAME_BASE", "\t$0", "endCode"]
+  },
+  "Interface": {
+    "prefix": "interface",
+    "body": ["interface $1", "\t$0", "endInterface"]
+  },
+  "Class": {
+    "prefix": "class",
+    "body": ["class $1", "\t$0", "endClass"]
+  },
+  "Behavior": {
+    "prefix": "behavior",
+    "body": ["behavior $1", "\t$0", "endBehavior"]
+  },
+  "Function": {
+    "prefix": "function",
+    "body": ["function $1($2)", "\t$0", "endFunction"]
+  },
+  "Method": {
+    "prefix": "method",
+    "body": ["method $1($2)", "\t$0", "endMethod"]
+  },
+  "If": {
+    "prefix": "if",
+    "body": ["if $1", "\t$0", "endIf"]
+  },
+  "While": {
+    "prefix": "while",
+    "body": ["while $1", "\t$0", "endWhile"]
+  },
+  "Do": {
+    "prefix": "do",
+    "body": ["do", "\t$0", "until $1"]
+  },
+  "For": {
+    "prefix": "for",
+    "body": ["for ($1; $2; $3)", "\t$0", "endFor"]
+  },
+  "For In": {
+    "prefix": "forin",
+    "body": ["for $1 = $2 to $3", "\t$0", "endFor"]
+  },
+  "Switch": {
+    "prefix": "switch",
+    "body": ["switch $1", "\t$0", "endSwitch"]
+  },
+  "Try": {
+    "prefix": "try",
+    "body": ["try", "\t$0", "endTry"]
+  }
+}

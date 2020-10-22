@@ -1,0 +1,141 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "K",
+	"patterns": [
+		{
+			"include": "#code"
+		}
+	],
+	"repository": {
+		"code": {
+			"patterns": [
+				{
+					"include": "#keyword"
+				},
+				{
+					"include": "#primitive-type"
+				},
+				{
+					"include": "#constant"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#string"
+				},
+				{
+					"include": "#char"
+				},
+				{
+					"include": "#line-comment"
+				},
+				{
+					"include": "#block-comment"
+				},
+				{
+					"include": "#function-call"
+				}
+			]
+		},
+		"keyword": {
+			"patterns": [
+				{
+					"name": "keyword.control.kpl",
+					"match": "\\b(alloc|array|arraySize|asInteger|asPtrTo|behavior|break|by|case|catch|class|code|const|continue|debug|default|do|else|elseIf|endBehavior|endClass|endCode|endFor|endFunction|endHeader|endIf|endInterface|endMethod|endRecord|endSwitch|endTry|endWhile|enum|errors|extends|external|fields|for|free|function|functions|header|if|implements|infix|interface|isInstanceOf|isKindOf|messages|method|methods|new|of|prefix|ptr|record|renaming|return|returns|sizeOf|superclass|switch|throw|to|try|type|until|uses|var|while)\\b"
+				}
+			]
+		},
+		"primitive-type": {
+			"patterns": [
+				{
+					"name": "storage.type.primitive.kpl",
+					"match": "\\b(char|int|double|bool|void|typeOfNull|anyType)\\b"
+				}
+			]
+		},
+		"constant": {
+			"patterns": [
+				{
+					"name": "constant.language.kpl",
+					"match": "\\b(true|false|null|self|super)\\b"
+				}
+			]
+		},
+		"numbers": {
+			"comment": "https://github.com/redhat-developer/vscode-java/blob/95ffc427eb7f2cced1e543275b2c6c70555b03c0/syntaxes/java.tmLanguage.json#L1148",
+			"patterns": [
+				{
+					"match": "(?x)\n\\b(?<!\\$)\n0(x|X)\n(\n  (?<!\\.)[0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?[Ll]?(?!\\.)\n  |\n  (\n    [0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?\\.?\n    |\n    ([0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?)?\\.[0-9a-fA-F]([0-9a-fA-F_]*[0-9a-fA-F])?\n  )\n  [Pp][+-]?[0-9]([0-9_]*[0-9])?[FfDd]?\n)\n\\b(?!\\$)",
+					"name": "constant.numeric.hex.kpl"
+				},
+				{
+					"match": "\\b(?<!\\$)0(b|B)[01]([01_]*[01])?[Ll]?\\b(?!\\$)",
+					"name": "constant.numeric.binary.kpl"
+				},
+				{
+					"match": "\\b(?<!\\$)0[0-7]([0-7_]*[0-7])?[Ll]?\\b(?!\\$)",
+					"name": "constant.numeric.octal.kpl"
+				},
+				{
+					"match": "(?x)\n(?<!\\$)\n(\n  \\b[0-9]([0-9_]*[0-9])?\\.\\B(?!\\.)\n  |\n  \\b[0-9]([0-9_]*[0-9])?\\.([Ee][+-]?[0-9]([0-9_]*[0-9])?)[FfDd]?\\b\n  |\n  \\b[0-9]([0-9_]*[0-9])?\\.([Ee][+-]?[0-9]([0-9_]*[0-9])?)?[FfDd]\\b\n  |\n  \\b[0-9]([0-9_]*[0-9])?\\.([0-9]([0-9_]*[0-9])?)([Ee][+-]?[0-9]([0-9_]*[0-9])?)?[FfDd]?\\b\n  |\n  (?<!\\.)\\B\\.[0-9]([0-9_]*[0-9])?([Ee][+-]?[0-9]([0-9_]*[0-9])?)?[FfDd]?\\b\n  |\n  \\b[0-9]([0-9_]*[0-9])?([Ee][+-]?[0-9]([0-9_]*[0-9])?)[FfDd]?\\b\n  |\n  \\b[0-9]([0-9_]*[0-9])?([Ee][+-]?[0-9]([0-9_]*[0-9])?)?[FfDd]\\b\n  |\n  \\b(0|[1-9]([0-9_]*[0-9])?)(?!\\.)[Ll]?\\b\n)\n(?!\\$)",
+					"name": "constant.numeric.decimal.kpl"
+				}
+			]
+		},
+		"char": {
+			"name": "string.quoted.single.kpl",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.kpl",
+					"match": "\\\\."
+				}
+			]
+		},
+		"string": {
+			"name": "string.quoted.double.kpl",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.kpl",
+					"match": "\\\\."
+				}
+			]
+		},
+		"line-comment": {
+			"name": "comment.line.kpl",
+			"begin": "--",
+			"end": "\r|\n"
+		},
+		"block-comment": {
+			"name": "comment.block.kpl",
+			"begin": "/\\*",
+			"end": "\\*/",
+			"patterns": [
+				{
+					"include": "#block-comment"
+				}
+			]
+		},
+		"function-call": {
+			"comment": "https://github.com/redhat-developer/vscode-java/blob/95ffc427eb7f2cced1e543275b2c6c70555b03c0/syntaxes/java.tmLanguage.json#L830",
+			"begin": "([A-Za-z_$][\\w$]*)\\s*(\\()",
+			"beginCaptures": {
+				"1": {
+					"name": "entity.name.function.kpl"
+				}
+			},
+			"end": "\\)",
+			"name": "meta.function-call.java",
+			"patterns": [
+				{
+					"include": "#code"
+				}
+			]
+		}
+	},
+	"scopeName": "source.k"
+}

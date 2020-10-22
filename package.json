@@ -1,0 +1,49 @@
+{
+    "name": "blitz-kpl",
+    "displayName": "Blitz KPL",
+    "description": "A vscode plugin for the K programming language",
+    "version": "0.0.1",
+    "publisher": "aedans",
+    "author": {
+        "email": "aedan.smith@gmail.com",
+        "name": "Aedan Smith"
+    },
+    "repository": {
+        "url": "https://github.com/aedans/blitz-kpl"
+    },
+    "engines": {
+        "vscode": "^1.50.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "kpl",
+                "aliases": [
+                    "K",
+                    "kpl"
+                ],
+                "extensions": [
+                    ".k",
+                    ".h"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "kpl",
+                "scopeName": "source.k",
+                "path": "./syntaxes/kpl.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "kpl",
+                "path": "./snippets.json"
+            }
+        ]
+    }
+}
