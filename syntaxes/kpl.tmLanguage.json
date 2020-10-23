@@ -13,6 +13,9 @@
 					"include": "#keyword"
 				},
 				{
+					"include": "#control-keyword"
+				},
+				{
 					"include": "#primitive-type"
 				},
 				{
@@ -41,8 +44,16 @@
 		"keyword": {
 			"patterns": [
 				{
+					"name": "keyword.kpl",
+					"match": "\\b(alloc|array|arraySize|asInteger|asPtrTo|behavior|by|class|code|const|debug|endBehavior|endClass|endCode|endFunction|endHeader|endInterface|endMethod|endRecord|enum|errors|extends|external|fields|free|function|functions|header|implements|infix|interface|isInstanceOf|isKindOf|messages|method|methods|new|of|prefix|ptr|record|renaming|returns|sizeOf|superclass|to|type|uses|var)\\b"
+				}
+			]
+		},
+		"control-keyword": {
+			"patterns": [
+				{
 					"name": "keyword.control.kpl",
-					"match": "\\b(alloc|array|arraySize|asInteger|asPtrTo|behavior|break|by|case|catch|class|code|const|continue|debug|default|do|else|elseIf|endBehavior|endClass|endCode|endFor|endFunction|endHeader|endIf|endInterface|endMethod|endRecord|endSwitch|endTry|endWhile|enum|errors|extends|external|fields|for|free|function|functions|header|if|implements|infix|interface|isInstanceOf|isKindOf|messages|method|methods|new|of|prefix|ptr|record|renaming|return|returns|sizeOf|superclass|switch|throw|to|try|type|until|uses|var|while)\\b"
+					"match": "\\b(break|case|catch|continue|default|do|else|elseIf|endFor|endIf|endSwitch|endTry|endWhile|for|if|return|switch|throw|try|until|while)\\b"
 				}
 			]
 		},
@@ -129,7 +140,7 @@
 				}
 			},
 			"end": "\\)",
-			"name": "meta.function-call.java",
+			"name": "meta.function-call.kpl",
 			"patterns": [
 				{
 					"include": "#code"

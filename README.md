@@ -6,5 +6,5 @@ A vscode plugin for the K programming language that provides syntax highlighting
 
 ```
 git clone https://github.com/aedans/blitz-kpl.git
-code --install-extension blitz-kpl/blitz-kpl-0.0.1.vsix
+code --install-extension blitz-kpl/blitz-kpl-0.0.2.vsix
 ```

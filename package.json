@@ -2,7 +2,7 @@
     "name": "blitz-kpl",
     "displayName": "Blitz KPL",
     "description": "A vscode plugin for the K programming language",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "aedans",
     "author": {
         "email": "aedan.smith@gmail.com",
